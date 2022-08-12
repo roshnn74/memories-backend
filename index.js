@@ -17,6 +17,10 @@ app.use(cors());
 app.use('/posts', postRoutes);
 app.use('/user', userRoutes);
 
+app.get('/', (req,res) => {
+    res.send('APP RUNNING');
+})
+
 const PORT = process.env.PORT || 5000;
 const CONNECTION_URL = 'mongodb+srv://roshnn74:Reaperoflife@cluster0.txgtj.mongodb.net/?retryWrites=true&w=majority';
 
