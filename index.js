@@ -22,7 +22,6 @@ app.get('/', (req,res) => {
 })
 
 const PORT = process.env.PORT || 5000;
-const CONNECTION_URL = 'mongodb+srv://roshnn74:Reaperoflife@cluster0.txgtj.mongodb.net/?retryWrites=true&w=majority';
 
 if(process.env.NODE_ENV === 'production'){
     app.use(express.static("client/build"));
@@ -32,7 +31,7 @@ if(process.env.NODE_ENV === 'production'){
     })
 }
 
-mongoose.connect(CONNECTION_URL, { useNewUrlParser:true, useUnifiedTopology:true })
+mongoose.connect(process.env.CONNECTION_URL, { useNewUrlParser:true, useUnifiedTopology:true })
             .then(() => app.listen(PORT, () => console.log(`Server running on port: ${PORT}`)))
             .catch((error) => console.log(error.message));
 
